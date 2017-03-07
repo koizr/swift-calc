@@ -104,14 +104,10 @@ public class Calculator {
     @discardableResult
     public func percent() -> String {
         if operation == .None {
-            if !left.isEmpty {
-                left.divide(100)
-            }
+            left.divide(100)
             return left.stringValue
         } else {
-            if !right.isEmpty {
-                right.divide(100)
-            }
+            right.divide(100)
             return right.stringValue
         }
     }
@@ -119,6 +115,7 @@ public class Calculator {
     /**
      ステータスが計算可能状態であれば計算結果を返す。
      計算可能状態でなければステータスに応じた表示値を返す。
+     計算結果は次の計算の左辺となる。
      - returns : 計算結果
      */
     @discardableResult

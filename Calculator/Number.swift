@@ -126,15 +126,20 @@ public class Number : Equatable, ExpressibleByIntegerLiteral, ExpressibleByFloat
      */
     @discardableResult
     public func append(_ s: String) -> Number {
+        var newValue : String?
+
         if value.isEmpty && Number.DECIMAL_POINT == s {
-            value = Number.ZERO
-        }
-        var newValue = value == Number.ZERO ? s : value + s
-        if s == "00" && self.isDisableToAppendDoubleZero {
+            newValue = Number.ZERO + Number.DECIMAL_POINT
+        } else if s == "00" && self.isDisableToAppendDoubleZero {
             newValue = Number.ZERO
+        } else {
+            newValue = value == Number.ZERO ? s : value + s
         }
-        if let _ = Double(newValue) {
-            self.value = newValue
+
+        newValue.then() {
+            if let _ = Double($0) {
+                self.value = $0
+            }
         }
         return self
     }

@@ -2,8 +2,8 @@
 //  Optional+then.swift
 //  Calculator
 //
-//  Created by 小泉凌 on 2017/02/21.
-//  Copyright © 2017年 小泉凌. All rights reserved.
+//  Created by Koizumi on 2017/02/21.
+//  Copyright © 2017年 Koizumi. All rights reserved.
 //
 
 import Foundation
